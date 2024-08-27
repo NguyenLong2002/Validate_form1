@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="main">
+
+        <form action="" method="POST" class="form" id="form-1">
+          <h3 class="heading">Validate form</h3>
+      
+          <div class="spacer"></div>
+      
+          <div class="form-group">
+            <label for="fullname" class="form-label">Tên đầy đủ</label>
+                <input id="fullname" name="fullname" type="text" placeholder="VD: Sơn Đặng" class="form-control">
+            <span class="form-message"></span>
+          </div>
+      
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
+            <span class="form-message"></span>
+          </div>
+      
+          <div class="form-group">
+            <label for="password" class="form-label">Mật khẩu</label>
+            <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+            <span class="form-message"></span>
+          </div>
+      
+          <div class="form-group">
+            <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
+            <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="password" class="form-control">
+            <span class="form-message"></span>
+          </div>
+          <div class="form-group">
+            <label for="gender" class="form-label">Chọn giới tính</label>
+            <div class="radio-options">             
+                    <input name="gender" type="radio" value="male" class="form-control">Nam
+                    <input name="gender" type="radio" value="female" class="form-control">Nữ
+                    <input name="gender" type="radio" value="orther" class="form-control">Khác
+            </div>
+            <span class="form-message"></span>
+          </div>
+          <div class="form-group">
+            <label for="hobby" class="form-label">Chọn sở thích</label>
+            <div class="radio-options">             
+                    <input name="hobby" type="checkbox" value="football" class="form-control">Đá bóng
+                    <input name="hobby" type="checkbox" value="readbook" class="form-control">Đọc sách
+                    <input name="hobby" type="checkbox" value="listenmusic" class="form-control">Nghe nhạc
+            </div>
+            <span class="form-message"></span>
+          </div>
+          <div class="form-group">
+            <label for="avatar" class="form-label">Chọn ảnh đại diện</label>
+                <input id = "avatar" name="avatar" type="file"  class="form-control">    
+            <span class="form-message"></span>
+          </div>
+      
+          <button class="form-submit">Đăng ký</button>
+        </form>
+      
+      </div>
+      <script src="./main.js"></script>
+      <script>
+
+        validator({
+                form : '#form-1',
+                formGroupSelector: '.form-group',
+                errorSelector : '.form-message',
+                rules : [
+                    //validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ!'),
+                    //validator.isRequired('#email', 'Vui lòng nhập trường này!'),
+                   // validator.isEmail('#email'),
+                   //validator.isRequired('#avatar'),
+                   // validator.minLength('#password',6,'Vui lòng nhập mật khẩu!'),
+                    //validator.isRequired('input[name="gender"]'),
+                    //validator.isRequired('input[name="hobby"]'),
+                   // validator.isRequired('#password_confirmation', 'Vui lòng nhập trường này'),
+                   // validator.isConfirmed('#password_confirmation', function(){
+                   //     return document.querySelector('#form-1 #password').value;
+                   // },'Mật khẩu nhập lại không chính xác!'),
+                    
+                ],
+                onSubmit: function(data){
+                        console.log(data);
+                    }
+            });
+      </script>
+</body>
+</html>
